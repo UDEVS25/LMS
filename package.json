@@ -11,13 +11,20 @@
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  },"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "lint": "eslint src --fix", 
+  "format": "prettier --write .", 
+  "clean": "rm -rf node_modules && npm install", 
+  "serve": "serve -s build",
+  "analyze": "react-scripts build && source-map-explorer 'build/static/js/*.js'",
+  "prestart": "npm run lint",
+  "deploy": "npm run build && gh-pages -d build" 
+}
+,
   "eslintConfig": {
     "extends": [
       "react-app",
